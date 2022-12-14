@@ -1,2 +1,1 @@
-webpack 从入门到实战.<br>
-深入学习 webpack.
+本项目为学习 webpack 使用，存储一些学习过程中搭建过的 webpack，作为以后回顾的资料。
