@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = {
+const config = {
   context: path.resolve(__dirname, 'src'),
   // 入口
   // entry: '/index.js',
@@ -18,14 +18,14 @@ module.exports = {
   //     filename: 'test.js', // 打包出来的文件名字
   //   },
   // },
+  // 出口 output 属性，这里不设置，则为默认
   output: {
     path: path.resolve(__dirname, 'dist'),
     // publicPath: 'https://a.b.c/assets/',
     filename: 'index.js',
     chunkFilename: 'app_[id].js',
   },
-  // 出口 output 属性，这里不设置，则为默认
-  mode: 'production',
+  // mode: 'production',
   module: {
     rules: [
       {
@@ -43,4 +43,12 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
   ],
+  devtool: 'source-map',
+}
+
+module.exports = (env, argv) => {
+  if (argv.mode === 'production') {
+    config.output.filename = 'prod-index.js'
+  }
+  return config
 }
