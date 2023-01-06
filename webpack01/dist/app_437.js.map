@@ -1,1 +1,0 @@
-{"version":3,"file":"app_437.js","mappings":"kFAAe,SAASA,EAAIC,GAC1BC,QAAQF,IAAIC,EACd,C","sources":["webpack:///./log.js"],"sourcesContent":["export default function log(msg) {\n  console.log(msg)\n}\n"],"names":["log","msg","console"],"sourceRoot":""}
