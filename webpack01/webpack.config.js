@@ -30,7 +30,30 @@ const config = {
     rules: [
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    'autoprefixer',
+                    {
+                      // overrideBrowserslist: [
+                      //   'last 10 Chrome versions',
+                      //   'last 5 Firefox versions',
+                      //   'Safari >= 6',
+                      //   'ie > 8',
+                      // ],
+                    },
+                  ],
+                ],
+              },
+            },
+          },
+        ],
         // use: ['style-loader', 'css-loader'],
         // loader: 'css-loader',
       },
